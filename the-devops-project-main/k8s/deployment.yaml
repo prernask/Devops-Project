@@ -14,6 +14,9 @@ spec:
     spec:
       containers:
       - name: flask-app
-        image: docker.io/atuljkamble/the-docker-project:latest
+        image: docker.io/preranakarande/devopsnew:latest
+        imagePullPolicy: Always   # Ensure Kubernetes always tries to pull the latest image
         ports:
         - containerPort: 5000
+      imagePullSecrets:          # <-- added for private image
+      - name: regcred
